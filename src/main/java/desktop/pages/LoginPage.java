@@ -12,50 +12,50 @@ public class LoginPage extends AbstractPage {
     private static final String PLACEHOLDER = "placeholder";
 
     @FindBy(id = "ap_customer_name")
-    private WebElement name;
+    private WebElement nameInput;
 
     @FindBy(id = "ap_email")
-    private WebElement email;
+    private WebElement emailInput;
 
     @FindBy(id = "ap_password")
-    private WebElement password;
+    private WebElement passwordInput;
 
     @FindBy(className = "user-nav")
-    private MainHeader navigation;
+    private MainHeader navigationMenu;
 
     public LoginPage(WebDriver driver) {
         super(driver);
     }
 
     public void enterName(String name) {
-        this.name.clear();
-        this.name.sendKeys(name);
+        nameInput.clear();
+        nameInput.sendKeys(name);
     }
 
     public void enterEmail(String email) {
-        this.email.clear();
-        this.email.sendKeys(email);
+        emailInput.clear();
+        emailInput.sendKeys(email);
     }
 
     public void enterPassword(String password) {
-        this.password.clear();
-        this.password.sendKeys(password);
+        passwordInput.clear();
+        passwordInput.sendKeys(password);
     }
 
     public String getNamePlaceholder() {
-        return this.name.getAttribute(PLACEHOLDER);
+        return nameInput.getAttribute(PLACEHOLDER);
     }
 
     public String getEmailPlaceholder() {
-        return this.email.getAttribute(PLACEHOLDER);
+        return emailInput.getAttribute(PLACEHOLDER);
     }
 
     public String getPasswordPlaceholder() {
-        return this.password.getAttribute(PLACEHOLDER);
+        return passwordInput.getAttribute(PLACEHOLDER);
     }
 
     public MainHeader getTopNavigation() {
-        return this.navigation;
+        return navigationMenu;
     }
 
     @Override
