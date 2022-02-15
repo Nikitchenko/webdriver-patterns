@@ -2,6 +2,7 @@ package desktop.pages;
 
 import abstractclasses.page.AbstractPage;
 import desktop.fragments.MainHeader;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -25,6 +26,7 @@ public class LoginPage extends AbstractPage {
 
     public LoginPage(WebDriver driver) {
         super(driver);
+        driver.switchTo().frame(driver.findElement(By.className("register-iframe")));
     }
 
     public void enterName(String name) {
