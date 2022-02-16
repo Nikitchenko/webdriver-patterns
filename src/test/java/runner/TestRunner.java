@@ -33,7 +33,6 @@ class TestRunner {
                 () -> assertEquals(namePlaceholder, loginPage.getNamePlaceholder(), "Not correct placeholder for a name."),
                 () -> assertEquals(emailPlaceholder, loginPage.getEmailPlaceholder(), "Not correct placeholder for an email."),
                 () -> assertEquals(passwordPlaceholder, loginPage.getPasswordPlaceholder(), "Not correct placeholder for a password."));
-        driver.quit();
     }
 
     @AfterEach
