@@ -8,13 +8,13 @@ public class MainHeader extends AbstractFragment {
 
 
     @FindBy(xpath= "//div[@class = 'user-nav']//a[@href = '/account/login/to/account']")
-    private WebElement signin;
+    private WebElement signInLink;
 
     public MainHeader(WebElement rootElement) {
         super(rootElement);
     }
 
     public String getSigninText() {
-        return this.signin.getText();
+        return signInLink.getText();
     }
 }
