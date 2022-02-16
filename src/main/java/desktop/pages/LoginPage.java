@@ -1,7 +1,6 @@
 package desktop.pages;
 
 import abstractclasses.page.AbstractPage;
-import desktop.fragments.MainHeader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -20,9 +19,6 @@ public class LoginPage extends AbstractPage {
 
     @FindBy(id = "ap_password")
     private WebElement passwordInput;
-
-    @FindBy(className = "user-nav")
-    private MainHeader navigationMenu;
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -54,10 +50,6 @@ public class LoginPage extends AbstractPage {
 
     public String getPasswordPlaceholder() {
         return passwordInput.getAttribute(PLACEHOLDER);
-    }
-
-    public MainHeader getTopNavigation() {
-        return navigationMenu;
     }
 
     @Override

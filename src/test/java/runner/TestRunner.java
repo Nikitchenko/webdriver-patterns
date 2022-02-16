@@ -1,5 +1,6 @@
 package runner;
 
+import desktop.fragments.MainHeader;
 import desktop.pages.HomePage;
 import desktop.pages.LoginPage;
 import driver.SingletonDriver;
@@ -23,15 +24,22 @@ class TestRunner {
     @Test
     void loginPageTest() {
 
+        String signInText = "Sign in/Join";
+        String loginPageUrl = THE_URL + "/account/login/to/account";
         String namePlaceholder = "Name";
         String emailPlaceholder = "Your email address";
         String passwordPlaceholder = "Create a password";
-        String loginPageUrl = THE_URL+"/account/login/to/account";
 
         driver = SingletonDriver.openPage(driver, THE_URL);
         HomePage homePage = new HomePage(driver);
 
-        LoginPage loginPage = homePage.signInLinkClick();
+        MainHeader mainHeader = homePage.getTopNavigation();
+
+        assertAll("Check the placeholders in the register-iframe",
+                () -> assertEquals(signInText, mainHeader.getSignInLink().getText(), "Not correct Sign In text.")
+        );
+
+        LoginPage loginPage = mainHeader.signInLinkClick();
 
         assertAll("Check the placeholders in the register-iframe",
                 () -> assertEquals(loginPageUrl, loginPage.getPageUrl(), "Not Log in page."),

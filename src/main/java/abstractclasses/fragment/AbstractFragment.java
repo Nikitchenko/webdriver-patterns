@@ -6,11 +6,13 @@ import org.openqa.selenium.support.PageFactory;
 
 public abstract class AbstractFragment {
 
+    protected final WebDriver driver;
+
     private WebElement rootElement;
 
-    protected AbstractFragment(WebElement rootElement) {
-        this.rootElement = rootElement;
-        PageFactory.initElements((WebDriver) rootElement, this);
+    protected AbstractFragment(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
     public WebElement getRootElement() {
