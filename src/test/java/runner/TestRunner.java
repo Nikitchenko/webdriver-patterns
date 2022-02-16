@@ -35,7 +35,7 @@ class TestRunner {
 
         MainHeader mainHeader = homePage.getTopNavigation();
 
-        assertAll("Check the placeholders in the register-iframe",
+        assertAll("Check the text of Sign In link",
                 () -> assertEquals(signInText, mainHeader.getSignInLink().getText(), "Not correct Sign In text.")
         );
 
