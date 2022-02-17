@@ -12,6 +12,8 @@ public class SingletonDriver {
     private SingletonDriver() {
         System.setProperty("webdriver.chrome.driver", DRIVER_PATH);
         driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
     }
 
     public static WebDriver getWebDriverInstance() {
@@ -23,8 +25,6 @@ public class SingletonDriver {
 
     public static WebDriver openPage(WebDriver driver, String url) {
         driver.get(url);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
         return driver;
     }
 
